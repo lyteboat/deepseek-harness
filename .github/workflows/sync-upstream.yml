@@ -4,9 +4,9 @@
 # fails the run (HTTP 409) and leaves master untouched for a manual merge.
 #
 # GitHub refuses a push through GITHUB_TOKEN that changes .github/workflows/, so
-# upstream commits touching workflows need the UPSTREAM_SYNC_TOKEN secret: a
-# fine-grained token for this fork with Contents and Workflows read/write.
-# Without the secret the job falls back to GITHUB_TOKEN.
+# without the optional UPSTREAM_SYNC_TOKEN secret (a fine-grained token for this
+# fork with Contents and Workflows read/write) every run fails once upstream
+# changes a workflow file, until someone clicks "Sync fork" on the fork's page.
 name: Sync upstream
 
 on:
